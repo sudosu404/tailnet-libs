@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@source "../internal/**/*.templ";
+@source "./index.html";
+
+@variant dark (&:where(.tailnet-dark, .tailnet-dark *, [data-theme=tailnet-dark], [data-theme=tailnet-dark] *));
+
+
+@plugin "daisyui" {
+  themes: tailnet-light --default, tailnet-dark;
+  include: reset, properties, scrollbar, rootscrolllock, rootscrollgutter, rootcolor,
+    link, button, toggle, tooltip, card, card-body, badge, label, navbar, footer, menu,
+    dropdown, checkbox, radius, modal, kbd, input;
+}
+
+@import "./tailnet-light.css";
+@import "./tailnet-dark.css";
+
+@layer base {
+
+  html,
+  body {
+    @apply h-full;
+  }
+}
+
+@layer components {
+  #proxy-list {
+    @apply flex flex-wrap gap-4 px-4 mt-8 sm:px-7;
+
+    .proxy {
+
+      @apply card card-side card-xs shadow-md bg-base-300 dark:bg-base-200 basis-2xs grow;
+
+      figure {
+        @apply size-20 p-4;
+      }
+
+      .card-title button {
+        @apply m-2 p-2 btn badge badge-xs badge-info absolute right-0 top-0;
+
+        img {
+          @apply size-[1em];
+        }
+      }
+
+      .status {
+        @apply badge badge-warning badge-xs;
+
+        &.Authenticating {
+          @apply badge-info;
+        }
+
+        &.Running {
+          @apply badge-success;
+        }
+
+        &.Error,
+        &.Stopping,
+        &.Stopped {
+          @apply badge-error;
+        }
+      }
+
+      .openbtn {
+        @apply card-actions justify-end absolute right-2 bottom-2;
+
+        a {
+          @apply btn btn-primary btn-sm;
+        }
+      }
+    }
+  }
+}

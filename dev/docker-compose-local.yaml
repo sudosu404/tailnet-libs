@@ -1,0 +1,82 @@
+services:
+  c1:
+    image: nginx:latest
+    ports:
+      - 91:80
+      - 92:8000
+      - 93:8080
+    labels:
+      - tailnet.enable=true
+      - tailnet.name=testeff
+      - tailnet.ephemeral=true
+      - tailnet.funnel=true
+      - tailnet.container_port=80
+      - tailnet.dash.visible=true
+      # - tailnet.port.1=443/https:80/http, no_autodetect
+    # networks:
+    # - c1
+
+  c2:
+    image: nginx:1.27
+    ports:
+      - 82:80
+    labels:
+      - tailnet.enable=true
+      # - tailnet.port.1=443/https:80/http
+    networks:
+      - c2
+
+  c3:
+    image: nginxinc/nginx-unprivileged:latest
+    ports:
+      - 83:8080
+    labels:
+      - tailnet.enable=true
+      - tailnet.autodetect=true
+      # - tailnet.port.1=443/https:8080/http
+    # networks:
+    #   - c2
+
+  s1:
+    image: nginx
+    ports:
+      - 101:80
+      - 102:8000
+      - 103:8080
+    deploy:
+      labels:
+        - tailnet.enable=true
+        - tailnet.name=testeff
+        - tailnet.ephemeral=true
+        - tailnet.funnel=true
+        - tailnet.container_port=80
+        - tailnet.dash.visible=true
+    networks:
+      - c1
+
+  s2:
+    image: nginx
+    ports:
+      - 112:80
+    deploy:
+      labels:
+        - tailnet.enable=true
+    networks:
+      - c2
+
+  s3:
+    image: nginx
+    network_mode: host
+    ports:
+      - 113:80
+    deploy:
+      labels:
+        - tailnet.enable=true
+
+volumes:
+  tsdata:
+  tmp:
+
+networks:
+  c1:
+  c2:

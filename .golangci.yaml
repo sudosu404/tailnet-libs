@@ -1,0 +1,89 @@
+version: "2"
+run:
+  modules-download-mode: readonly
+linters:
+  default: none
+  enable:
+    - bodyclose
+    - copyloopvar
+    - cyclop
+    - dogsled
+    - dupl
+    - durationcheck
+    - errcheck
+    - errname
+    - errorlint
+    - goconst
+    - gocyclo
+    - goheader
+    - gosec
+    - govet
+    - grouper
+    - ineffassign
+    - lll
+    - makezero
+    - misspell
+    - mnd
+    - nestif
+    - nilnil
+    - perfsprint
+    - prealloc
+    - predeclared
+    - promlinter
+    - revive
+    - spancheck
+    - staticcheck
+    - tagliatelle
+    - unconvert
+    - unused
+    - wastedassign
+    - whitespace
+    - zerologlint
+  settings:
+    gocyclo:
+      min-complexity: 50
+    goheader:
+      values:
+        const:
+          AUTHOR: Hector <hector@email.gnx>
+      template: |-
+        SPDX-FileCopyrightText: {{ YEAR }} {{ AUTHOR }}
+        SPDX-License-Identifier: MIT
+    govet:
+      enable-all: true
+    lll:
+      line-length: 160
+    misspell:
+      locale: US
+    whitespace:
+      multi-func: true
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - linters:
+          - goconst
+        path: (.+)_test\.go
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/udosu404/gnx-cli
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

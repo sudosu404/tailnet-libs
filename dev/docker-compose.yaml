@@ -1,0 +1,71 @@
+services:
+  tailnet:
+    image: sudosu404/tailnet:latest
+    container_name: tailnet
+    # network_mode: host
+    user: root
+    ports:
+      - "8080:8080"
+    volumes:
+      - tmp:/tmp
+      - .:/config
+      - data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      # - /run/user/1000/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    environment:
+    - TAILNET_AUTHKEYFILE=${TAILNET_AUTHKEYFILE}
+    - DOCKER_HOST=${DOCKER_HOST}
+    - TAILNET_LOG_LEVEL=${TAILNET_LOG_LEVEL}
+    secrets:
+      - authkey
+    labels:
+      - tailnet.enable=true
+      - tailnet.name=tailnet-dev
+    networks:
+      c1:
+
+  c1:
+    image: nginx
+    ports:
+      - 81:80
+    labels:
+      - tailnet.enable=true
+      - tailnet.name=nginx
+    networks:
+      c1:
+
+  c2:
+    image: nginx
+    ports:
+      - 82:80
+    networks:
+      c2:
+    labels:
+      - tailnet.enable=true
+
+  c3:
+    image: nginx
+    ports:
+      - 83:80
+    networks:
+      c3:
+    labels:
+      - tailnet.enable=true
+
+volumes:
+  tsdata:
+  tmp:
+  data:
+
+secrets:
+  authkey:
+    file: ./KEY_FILE
+
+networks:
+  c1:
+    name: c1
+  c2:
+    name: c2
+  c3:
+    name: c3

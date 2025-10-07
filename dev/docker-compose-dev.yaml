@@ -1,0 +1,30 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: dev/Dockerfile.dev
+    image: sudosu404/tailnet:latest
+    ports:
+      - "8080:8080"
+      - "7331:7331"
+    volumes:
+      - ..:/app
+      - .:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data:/data
+    labels:
+      - tailnet.enable=true
+      - tailnet.name=tailnet-dev
+      - tailnet.dash.visible=true
+    secrets:
+      - authkey
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+secrets:
+  authkey:
+    file: ./KEY_FILE
+
+volumes:
+  tmp:
+  data:

@@ -1,0 +1,31 @@
+FROM golang:1.25-alpine
+
+WORKDIR /app
+
+# Arguments for user/group
+ARG UID=1000
+ARG GID=1000
+
+# Create non-root user
+RUN addgroup -g $GID appgroup && \
+    adduser -D -u $UID -G appgroup appuser
+
+# Install Go tools as root
+RUN go install github.com/air-verse/air@latest && \
+    go install github.com/a-h/templ/cmd/templ@latest
+
+ENV PATH=$PATH:/go/bin
+
+# Copy dependencies first
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy app source code
+COPY . .
+
+EXPOSE 8080 7331
+
+# Switch to non-root
+USER appuser
+
+CMD ["air", "-c", ".air.toml"]

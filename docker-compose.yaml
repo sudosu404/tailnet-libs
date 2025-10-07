@@ -1,0 +1,11 @@
+services:
+  tailnet:
+    image: sudosu404/tailnet:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - datadir:/data
+      - ./config:/config
+    restart: unless-stopped
+
+volumes:
+  datadir:

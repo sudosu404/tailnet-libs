@@ -1,0 +1,13 @@
+FROM alpine:latest AS certs
+RUN apk add --no-cache ca-certificates && update-ca-certificates 2>/dev/null || true
+
+FROM scratch
+
+COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+
+COPY tailnetd /
+COPY healthcheck /
+
+ENTRYPOINT ["/tailnetd"]
+EXPOSE 8080
+HEALTHCHECK --interval=1m --timeout=2s CMD [ "/healthcheck" ]

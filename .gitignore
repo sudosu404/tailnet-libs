@@ -1,0 +1,9 @@
+.cache
+.coder
+.env
+.local
+.config
+.gitconfig
+.env
+KEY_FILE
+.dockerignore
