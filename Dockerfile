@@ -39,7 +39,12 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /tailnetd ./cmd/server/main.go && \
 # Stage 3: Final minimal image
 # ----------------------------
 FROM scratch
-
+LABEL org.opencontainers.image.title="Tailnet" \
+      org.opencontainers.image.description="Server for handling tailnets" \
+      org.opencontainers.image.version="0.0.1b1" \
+      org.opencontainers.image.licenses="AGPL3" \
+      org.opencontainers.image.source="https://github.com/gnx-labs-orgs/tailnet" \
+      org.opencontainers.image.authors="Hector <hector@email.gnx>"
 # Copy CA certificates
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 

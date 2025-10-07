@@ -1,0 +1,78 @@
+services:
+  dev-tailnet:
+    image: sudosu404/tailnet:2.0.1
+    container_name: tailnet
+    user: "0"
+    command: sh -c "templ generate -watch -proxy='http://localhost:5173' --cmd='echo RELOAD' --path=/data/tmp & /tailnetd -config /config/tailnet.yaml"  
+    volumes:
+      - ./tailnet-config.dtail:/config          # config files
+      - ./src:/app:ro                     # read-only source code
+      - tailnetdata:/data                 # writable temp/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TAILNET_AUTHKEY=${TSDPROXY_AUTHKEY}
+      - TAILNET_HOSTNAME=${TSDPROXY_HOSTNAME}
+      - DOCKER_HOST=${DOCKER_HOST}
+    restart: unless-stopped
+    env_file:
+      - .env
+
+  valkey:
+    container_name: valkey
+    image: docker.io/valkey/valkey:8-alpine
+    command: valkey-server --save 30 1 --loglevel warning
+    restart: unless-stopped
+    volumes:
+      - valkey-data:/data
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+    env_file:
+      - .env
+
+  code-server:
+    image: codercom/code-server:latest
+    container_name: code-server
+    labels:
+      tailnet.enable: "true"
+      tailnet.name: "coder"
+    ports:
+      - "8080:8080"
+    volumes:
+      - "../:/home/coder"
+    user: "${UID}:${GID}"
+    environment:
+      - DOCKER_USER=${USER}
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+
+  database:
+    image: "postgres:17"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pscoder_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    env_file:
+      - .env
+
+volumes:
+  pscoder_data:
+  valkey-data:
+  tailnetdata:
