@@ -5,6 +5,11 @@ to your Tailscale network by automatically creating Tailscale machines for each
 tagged container. This allows services to be accessible via unique, secure URLs
 without the need for complex configurations or additional Tailscale containers.
 
+This binary make compose of great FOSS software out there by great people, like
+but not excluding Tailscale Proxmox QEMU and so on also the most inspiring 
+Paulo Almeida @almeidapaulopt @jtdowney John Downey and Alex from tailscale and
+many more hidden faces.
+
 ## Version 2
 
 Version 2 is already in beta. Please try and open issues if bugs detected.
