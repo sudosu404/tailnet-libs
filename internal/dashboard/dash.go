@@ -6,11 +6,11 @@ package dashboard
 import (
 	"sync"
 
-	"github.com/sudosu404/gnx-cli/internal/core"
-	"github.com/sudosu404/gnx-cli/internal/model"
-	"github.com/sudosu404/gnx-cli/internal/proxymanager"
-	"github.com/sudosu404/gnx-cli/internal/ui/pages"
-	"github.com/sudosu404/gnx-cli/web"
+	"github.com/sudosu404/tailnet-libs/internal/core"
+	"github.com/sudosu404/tailnet-libs/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/proxymanager"
+	"github.com/sudosu404/tailnet-libs/internal/ui/pages"
+	"github.com/sudosu404/tailnet-libs/web"
 
 	"github.com/rs/zerolog"
 )

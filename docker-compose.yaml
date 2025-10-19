@@ -1,6 +1,7 @@
 services:
-  tailnet:
-    image: sudosu404/tailnet:latest
+  tailnet-lib:
+    build: .
+    image: ghcr.io/sudosu404/tailnet-lib:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - datadir:/data

@@ -86,7 +86,7 @@ params:
 
   editURL:
     enable: true
-    base: "https://github.com/sudosu404/gnx-cli/edit/main/docs/content"
+    base: "https://github.com/sudosu404/tailnet-libs/edit/main/docs/content"
 
   # Search
   search:

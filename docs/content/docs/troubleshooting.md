@@ -21,7 +21,7 @@ weight: 300
 6. Add your container to the same Tailnet docker network
 7. Disable autodetection with tailnet.autodetect="false" in your container
 8. Verify if your case isn't in the next [Common errors](#common-errors)
-9. Still having problems? Send a [Bug report](https://github.com/sudosu404/gnx-cli/issues/new/choose)
+9. Still having problems? Send a [Bug report](https://github.com/sudosu404/tailnet-libs/issues/new/choose)
 
 ### Proxies List provider
 

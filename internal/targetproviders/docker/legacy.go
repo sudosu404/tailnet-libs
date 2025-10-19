@@ -3,7 +3,7 @@
 
 package docker
 
-import "github.com/sudosu404/gnx-cli/internal/model"
+import "github.com/sudosu404/tailnet-libs/internal/model"
 
 func (c *container) getLegacyPort() (model.PortConfig, error) {
 	c.log.Trace().Msg("getLegacyPort")

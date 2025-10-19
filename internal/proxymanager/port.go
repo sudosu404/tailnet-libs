@@ -13,9 +13,9 @@ import (
 	"net/http/httputil"
 	"sync"
 
-	"github.com/sudosu404/gnx-cli/internal/consts"
-	"github.com/sudosu404/gnx-cli/internal/core"
-	"github.com/sudosu404/gnx-cli/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/consts"
+	"github.com/sudosu404/tailnet-libs/internal/core"
+	"github.com/sudosu404/tailnet-libs/internal/model"
 
 	"github.com/rs/zerolog"
 )

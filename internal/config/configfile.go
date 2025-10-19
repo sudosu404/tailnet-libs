@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/sudosu404/gnx-cli/internal/consts"
+	"github.com/sudosu404/tailnet-libs/internal/consts"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/rs/zerolog"

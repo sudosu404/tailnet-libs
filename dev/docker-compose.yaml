@@ -1,6 +1,6 @@
 services:
   tailnet:
-    image: sudosu404/tailnet:latest
+    image: sudosu404/tailnet-libs:latest
     container_name: tailnet
     # network_mode: host
     user: root

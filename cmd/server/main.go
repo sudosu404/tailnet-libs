@@ -14,10 +14,10 @@ import (
 	"github.com/docker/docker/client"
 	"github.com/rs/zerolog"
 
-	"github.com/sudosu404/gnx-cli/internal/config"
-	"github.com/sudosu404/gnx-cli/internal/core"
-	"github.com/sudosu404/gnx-cli/internal/dashboard"
-	pm "github.com/sudosu404/gnx-cli/internal/proxymanager"
+	"github.com/sudosu404/tailnet-libs/internal/config"
+	"github.com/sudosu404/tailnet-libs/internal/core"
+	"github.com/sudosu404/tailnet-libs/internal/dashboard"
+	pm "github.com/sudosu404/tailnet-libs/internal/proxymanager"
 )
 
 type WebApp struct {

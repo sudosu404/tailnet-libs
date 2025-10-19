@@ -18,9 +18,9 @@ import (
 	"github.com/docker/docker/client"
 	"github.com/rs/zerolog"
 
-	"github.com/sudosu404/gnx-cli/internal/config"
-	"github.com/sudosu404/gnx-cli/internal/model"
-	"github.com/sudosu404/gnx-cli/internal/targetproviders"
+	"github.com/sudosu404/tailnet-libs/internal/config"
+	"github.com/sudosu404/tailnet-libs/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/targetproviders"
 )
 
 type (

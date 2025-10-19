@@ -1,11 +1,11 @@
 services:
   dev-tailnet:
-    image: sudosu404/tailnet:2.0.1
+    image: sudosu404/tailnet-libs:2.0.1
     container_name: tailnet
     user: "0"
     command: sh -c "templ generate -watch -proxy='http://localhost:5173' --cmd='echo RELOAD' --path=/data/tmp & /tailnetd -config /config/tailnet.yaml"  
     volumes:
-      - ./tailnet-config.dtail:/config          # config files
+      - ./tailnet-config:/config          # config files
       - ./src:/app:ro                     # read-only source code
       - tailnetdata:/data                 # writable temp/data
       - /var/run/docker.sock:/var/run/docker.sock

@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sudosu404/gnx-cli/internal/model"
-	"github.com/sudosu404/gnx-cli/web"
+	"github.com/sudosu404/tailnet-libs/internal/model"
+	"github.com/sudosu404/tailnet-libs/web"
 
 	ctypes "github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/swarm"

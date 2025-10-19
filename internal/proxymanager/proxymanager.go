@@ -10,13 +10,13 @@ import (
 
 	"github.com/rs/zerolog"
 
-	"github.com/sudosu404/gnx-cli/internal/config"
-	"github.com/sudosu404/gnx-cli/internal/model"
-	"github.com/sudosu404/gnx-cli/internal/proxyproviders"
-	"github.com/sudosu404/gnx-cli/internal/proxyproviders/tailscale"
-	"github.com/sudosu404/gnx-cli/internal/targetproviders"
-	"github.com/sudosu404/gnx-cli/internal/targetproviders/docker"
-	"github.com/sudosu404/gnx-cli/internal/targetproviders/list"
+	"github.com/sudosu404/tailnet-libs/internal/config"
+	"github.com/sudosu404/tailnet-libs/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/proxyproviders"
+	"github.com/sudosu404/tailnet-libs/internal/proxyproviders/tailscale"
+	"github.com/sudosu404/tailnet-libs/internal/targetproviders"
+	"github.com/sudosu404/tailnet-libs/internal/targetproviders/docker"
+	"github.com/sudosu404/tailnet-libs/internal/targetproviders/list"
 )
 
 type (

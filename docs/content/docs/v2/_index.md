@@ -53,7 +53,7 @@ with MagicDNS.
 
 > [!IMPORTANT]
   Tailnet is still in active development.
-  Have a question or feedback? Feel free to [open an issue](https://github.com/sudosu404/gnx-cli/issues)!
+  Have a question or feedback? Feel free to [open an issue](https://github.com/sudosu404/tailnet-libs/issues)!
 
 ## Next
 

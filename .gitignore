@@ -8,3 +8,4 @@
 .env.*
 KEY_FILE
 .dockerignore
+ENV_FILE

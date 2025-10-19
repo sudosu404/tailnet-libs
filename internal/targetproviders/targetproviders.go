@@ -6,7 +6,7 @@ package targetproviders
 import (
 	"context"
 
-	"github.com/sudosu404/gnx-cli/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/model"
 )
 
 type (

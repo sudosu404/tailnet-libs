@@ -6,8 +6,8 @@ package dashboard
 import (
 	"net/http"
 
-	"github.com/sudosu404/gnx-cli/internal/consts"
-	"github.com/sudosu404/gnx-cli/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/consts"
+	"github.com/sudosu404/tailnet-libs/internal/model"
 
 	"github.com/a-h/templ"
 	datastar "github.com/starfederation/datastar/sdk/go"

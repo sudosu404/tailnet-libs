@@ -12,8 +12,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/sudosu404/gnx-cli/internal/model"
-	"github.com/sudosu404/gnx-cli/internal/proxyproviders"
+	"github.com/sudosu404/tailnet-libs/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/proxyproviders"
 
 	"github.com/rs/zerolog"
 	"tailscale.com/client/local"

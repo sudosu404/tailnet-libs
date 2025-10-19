@@ -43,8 +43,8 @@ LABEL org.opencontainers.image.title="Tailnet" \
       org.opencontainers.image.description="Server for handling tailnets" \
       org.opencontainers.image.version="0.0.1b1" \
       org.opencontainers.image.licenses="AGPL3" \
-      org.opencontainers.image.source="https://github.com/gnx-labs-orgs/tailnet" \
-      org.opencontainers.image.authors="Hector <hector@email.gnx>"
+      org.opencontainers.image.source="https://github.com/sudosu404/tailnet-libs" \
+      org.opencontainers.image.authors="Hector <hector@email.gnx> @sudosu404"
 # Copy CA certificates
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 

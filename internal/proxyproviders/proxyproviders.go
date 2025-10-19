@@ -8,7 +8,7 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/sudosu404/gnx-cli/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/model"
 )
 
 type (

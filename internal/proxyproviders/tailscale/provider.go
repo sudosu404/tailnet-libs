@@ -9,9 +9,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/sudosu404/gnx-cli/internal/config"
-	"github.com/sudosu404/gnx-cli/internal/model"
-	"github.com/sudosu404/gnx-cli/internal/proxyproviders"
+	"github.com/sudosu404/tailnet-libs/internal/config"
+	"github.com/sudosu404/tailnet-libs/internal/model"
+	"github.com/sudosu404/tailnet-libs/internal/proxyproviders"
 
 	"github.com/rs/zerolog"
 	"tailscale.com/client/tailscale/v2"
